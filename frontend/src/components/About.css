@@ -1,0 +1,66 @@
+.about-us {
+  text-align: center;
+  padding: 20px;
+}
+
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 55px;
+  justify-items: center;
+}
+
+.team-member {
+  background: #FEF9E1;
+  padding: 15px;
+  border-radius: 10px;
+  width: 250px;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin: -20px 0 0px;
+}
+
+.team-member img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+}
+
+
+.restaurant-section {
+  display: flex;
+  align-items: center;
+  gap: 50px;
+  justify-content: left;
+  margin: 20px 0;
+}
+
+.restaurant-photo {
+  width: 300px;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.restaurant-description {
+  max-width: 700px;
+  font-size: 16px;
+  text-align: justify;
+  margin-bottom: 10px;
+}
+
+.restaurant-description h3 {
+  font-size: 24px; 
+  font-weight: bold; 
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+.about-us h2 {
+  margin: 50px 0 50px; /* Memberikan jarak lebih besar */
+  font-size: 30px;
+}
+
+.about-us hr{
+  margin: 70px 0 0px;
+}
