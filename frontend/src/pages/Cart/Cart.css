@@ -1,0 +1,180 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;700&display=swap');
+
+.cart-container {
+  padding-top: 30px;
+  padding-bottom: 80px;
+}
+.checkout {
+    background-color: orange;
+    text-align: center;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+    font-family: 'Poppins';
+}
+  table {
+    width: 100%;
+    border-collapse: collapse; 
+    text-align: center;
+    /* table-layout: fixed; */
+  }
+  
+  .heading1 {
+    text-align: center;
+    width: 100%;
+    display: block; 
+    font-size: 50;
+    font-family: 'Poppins';
+    padding-bottom: 10px;
+  }
+
+  .table-head th {
+    text-align: center; 
+    padding: 12px;
+  }
+
+  td {
+    padding: 12px; 
+  }
+
+
+.trash-icon {
+  display: block;
+  margin: auto;
+}
+
+  th {
+    padding: 12px;
+    border-bottom: 2px solid #f4a261; 
+    font-weight: bold;
+    color: #333;
+  }
+  
+  
+  td {
+    padding: 70px;
+    border-bottom: 1px solid #f4a261; 
+  }
+  
+
+  input[type="number"] {
+    width: 50px;
+    padding: 4px;
+    border: 2px solid #f4a261; 
+    border-radius: 6px;
+    text-align: center;
+    outline: none;
+  }
+  
+ 
+  button.remove-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 18px;
+    color: #555;
+    transition: 0.3s;
+  }
+  
+  button.remove-btn:hover {
+    color: #e76f51; 
+  }
+  
+  .heading-cart {
+    font-size: 50;
+    font-family: 'Poppins';
+  }
+
+  .cart-totals {
+    margin-top: 20px;
+    font-size: 16px;
+    width: 100%;
+    border-collapse: collapse;
+    padding-top: 30px;
+    padding-bottom: 100px;
+  }
+  
+  .cart-totals strong {
+    font-weight: bold;
+  }
+
+  .cart-row {
+    display: flex;
+    border-bottom: 2px solid #f4a261;
+    justify-content: space-between; /* Biar teks kiri & harga kanan */
+    width: 100%;
+    padding: 15px;
+  }
+  
+  .cart-image {
+    width: 25 0px;
+    height: auto; /* Tinggi akan menyesuaikan lebar */
+    
+  }
+
+  .cart-totals table {
+    width: 100%; /* Pastikan tabel full width */
+    border-collapse: collapse;
+    
+  }
+  
+  .cart-totals td {
+    width: 50%; /* Kolom kiri dan kanan sama besar */
+    text-align: left; /* Pastikan teks deskripsi di kiri */
+    padding: 8px 0;
+  }
+  
+  .cart-totals td:last-child {
+    text-align: right; /* Biar harga di kanan */
+  }
+  
+  
+  button.checkout-btn {
+    display: block;
+    width: 200px;
+    padding: 10px 0;
+    margin: 20px auto;
+    background: #f4a261;
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: 0.3s;
+  }
+  
+  button.checkout-btn:hover {
+    background: #e76f51;
+  }
+  
+  .quantity-input {
+    width: 50px;
+    padding: 4px;
+    border: 2px solid #f4a261;
+    border-radius: 6px;
+    text-align: center;
+    outline: none;
+  }
+  
+  .empty-cart {
+    text-align: center;
+    font-size: 18px;
+    color: gray;
+    margin-top: 20px;
+  }
+  
+  .trash-icon {
+    width: 24px; 
+    height: 24px;
+    cursor: pointer;
+  }
+  
+  .remove-btn {
+    border: none;
+    background: none;
+    padding: 0;
+  }
