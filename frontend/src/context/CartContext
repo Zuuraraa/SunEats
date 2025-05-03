@@ -1,0 +1,63 @@
+import React, { createContext, useState, useEffect } from 'react';
+import { menu_list } from '../assets/assets';
+
+
+export const CartContext = createContext();
+
+export const CartProvider = ({ children }) => {
+  const [cartItems, setCartItems] = useState([]);
+
+  useEffect(() => {
+    const storedCartItems = JSON.parse(localStorage.getItem('cartItems'));
+    if (storedCartItems) {
+      setCartItems(storedCartItems);
+    }
+  }, []);
+
+  const addToCart = (item) => {
+    const existingItem = cartItems.find((cartItem) => cartItem.id === item.id);
+    if (existingItem) {
+      setCartItems(
+        cartItems.map((cartItem) =>
+          cartItem.id === item.id
+            ? { ...cartItem, quantity: cartItem.quantity + 1 }
+            : cartItem
+        )
+      );
+    } else {
+      setCartItems([...cartItems, { ...item, quantity: 1 }]);
+    }
+    localStorage.setItem('cartItems', JSON.stringify([...cartItems, { ...item, quantity: 1 }]));
+  };
+
+  const removeFromCart = (id) => {
+    setCartItems(cartItems.filter((item) => item.id !== id));
+    localStorage.setItem('cartItems', JSON.stringify(cartItems.filter((item) => item.id !== id)));
+  };
+
+  const updateQuantity = (id, newQuantity) => {
+    if (!cartItems.find(item => item.id === id)) return; 
+    if (newQuantity < 1) return;
+    setCartItems(
+      cartItems.map((item) =>
+        item.id === id ? { ...item, quantity: newQuantity } : item
+      )
+    );
+    localStorage.setItem('cartItems', JSON.stringify(cartItems.map((item) =>
+      item.id === id ? { ...item, quantity: newQuantity } : item
+    )));
+  };
+
+  const clearCart = () => {
+    setCartItems([]);
+    localStorage.removeItem('cartItems');
+  };
+
+  return (
+    <CartContext.Provider value={{ cartItems, addToCart, removeFromCart, updateQuantity, clearCart }}>
+      {children}
+    </CartContext.Provider>
+  );
+};
+
+export default CartProvider;
