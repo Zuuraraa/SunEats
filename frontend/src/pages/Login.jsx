@@ -57,7 +57,6 @@ const Login = () => {
         />
 
         <div className="login-options">
-          <a href="/forgotPassword" className="login-link">Forgot Password?</a>
           <a href="/signUp" className="login-link">Create Your Account</a>
         </div>
 
