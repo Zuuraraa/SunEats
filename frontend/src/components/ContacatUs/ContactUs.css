@@ -1,0 +1,137 @@
+.contact-us {
+    color: white;
+    background-color: #f67828;
+    /* background-color: aqua; */
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 20px 8vw 80px;
+    padding-top: 60px;
+    margin-bottom: 20px;
+    /* padding-bottom: 60px; */
+
+  }
+  
+  /* Aturan global untuk gambar, pastikan tidak menimpa ikon di .right-contact */
+  img {
+    max-width: 210px; /* Sesuaikan kebutuhan */
+    height: auto;
+  }
+  
+  /* ----------------------
+     Ganti .content → .content-contact
+  ---------------------- */
+  .content-contact {
+    background-color: #fff;   /* Card putih */
+    border-radius: 8px;       /* Sudut melengkung */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Shadow tipis */
+    padding: 40px;            /* Ruang dalam card */
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 60px;
+    color: #333;    
+  }
+  
+  /* Contoh styling untuk gambar di dalam .content-contact */
+  .content-contact img {
+    display: flex;
+    align-items: center;
+    gap: 10px; 
+    margin-bottom: 20px;
+  }
+  
+  /* Logo khusus di bagian kiri */
+  .content-contact .logo {
+    width: 150px; 
+    max-width: 100%;
+    height: auto;
+  }
+  
+  /* ----------------------
+     Ganti .left → .left-contact
+     Ganti .right → .right-contact
+  ---------------------- */
+  .left-contact, .right-contact {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    gap: 20px;
+    align-items: flex-start;
+    /* border: 5px;  <-- Ini tidak berfungsi karena tidak ada style border (solid/dashed) */
+    /* border-color: black; */
+  }
+  
+  /* Jika ada <li> di dalam .left-contact dan .right-contact */
+  .left-contact li, .right-contact li {
+    list-style: none;
+    margin-bottom: 10px;
+    cursor: pointer;
+  }
+  
+  /* Paragraf di area kiri */
+  .left-contact p {
+    color: #333; 
+    font-size: 1rem;
+    line-height: 1.6;
+    width: 90%; /* Jika Anda ingin membatasi lebar teks */
+  }
+  
+  /* Daftar contact di area kanan */
+  .right-contact .contact-list li {
+    display: flex;
+    align-items: center;
+    /* background-color: aqua; */
+    gap: 10px;
+    /* margin-bottom: 20px; */
+  }
+
+  /* .right-contact. {
+    background-color: yellow;
+  } */
+  
+  /* Hover effect pada ikon di daftar contact */
+  .right-contact .contact-list li img:hover {
+    transform: scale(1.1);
+    transition: transform 0.2s ease;
+  }
+  
+  /* Hover effect pada li agar ada highlight background */
+  .right-contact .contact-list li:hover {
+    background-color: #f2f2f2; 
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+  }
+  
+  /* Ukuran ikon di area kanan */
+  .right-contact .contact-list img {
+    width: 30px;
+    height: 30px;
+    object-fit: contain;
+    cursor: pointer;
+  }
+
+  .right-contact .contact-list span {
+    font-size: 18px;
+    line-height: 1; /* Pastikan tinggi teks seimbang */
+    display: flex;
+    align-items: center; /* Menyamakan tinggi teks */
+}
+  
+  /* Judul “Contact” di area kanan */
+  .right-contact h1 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: #f67828; /* Sesuaikan selera warna */
+  }
+
+  /* ----------------------
+     (Opsional) Responsif
+  ---------------------- */
+  @media (max-width: 768px) {
+    .content-contact {
+      grid-template-columns: 1fr; 
+      gap: 20px;
+    }
+  }
+  
