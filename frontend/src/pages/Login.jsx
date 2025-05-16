@@ -2,12 +2,30 @@ import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./Login.css";
 
+import { useEffect } from "react";
+
 const Login = () => {
   const navigate = useNavigate();
+
   const [formData, setFormData] = useState({
     email: "",
     password: "",
   });
+
+  // State untuk popup
+  const [popup, setPopup] = useState({
+    show: false,
+    type: "",      // 'success' atau 'error'
+    message: "",   // pesan yang ditampilkan
+  });
+
+  // Effect untuk mengatur timer popup
+  useEffect(() => { 
+    if (popup.show) {
+      const timer = setTimeout(() => setPopup({ show: false, type: "", message: "" }), 3000);
+      return () => clearTimeout(timer);
+    }
+  }, [popup]);
 
   const handleChange = (e) => {
     setFormData((prev) => ({ ...prev, [e.target.name]: e.target.value }));
@@ -23,13 +41,26 @@ const Login = () => {
       });
 
       const data = await response.json();
-      if (!response.ok) throw new Error(data.message || "Login failed");
+        if (!response.ok) throw new Error(data.message || "Login failed");
 
-      alert("Login successful!");
+      // Set popup state untuk sukses
+      setPopup({
+        show: true,
+        type: "success",
+        message: "Login Success!",
+      });
       localStorage.setItem("token", data.token);
-      navigate("/");
+      setTimeout(() => {
+        navigate("/");
+      }, 2000);
+
     } catch (error) {
-      alert("Login failed: " + error.message);
+      // Set popup state untuk error
+        setPopup({
+          show: true,
+          type: "error",
+          message: "Login failed! Please recheck your gmail and password and try again.",
+        });      
     }
   };
 
@@ -62,6 +93,17 @@ const Login = () => {
 
         <button type="submit" className="login-button">Login</button>
       </form>
+
+      
+      {popup.show &&( 
+        <div className={`popup ${popup.type}`}>
+          <div className="popup-icon">
+            {popup.type === "success" ? "✔" : "!"}
+          </div>
+          <div className="popup-message">{popup.message}</div>
+        </div>
+       )}
+
     </div>
   );
 };
