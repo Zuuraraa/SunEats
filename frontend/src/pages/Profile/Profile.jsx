@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import './Profile.css';
 import {
   FaUser,
@@ -13,12 +15,14 @@ import {
 const Profile = () => {
   const isAdmin = true;
 
+  const storedUser = JSON.parse(localStorage.getItem("user")) || {};
   const [profile, setProfile] = useState({
-    name: 'John Doe',
-    email: 'john@example.com',
-    phone: '081234567890',
-    address: 'Jl. Mawar No. 8, Bandung',
+    name: storedUser.name || '',
+    email: storedUser.email || '',
+    phone: '',
+    address: '',
   });
+  
 
   const [isEditing, setIsEditing] = useState(false);
 
@@ -26,6 +30,7 @@ const Profile = () => {
     setProfile({ ...profile, [e.target.name]: e.target.value });
   };
 
+  
   const handleEdit = () => setIsEditing(true);
   const handleCancel = () => setIsEditing(false);
   const handleSave = () => {
@@ -33,8 +38,21 @@ const Profile = () => {
     setIsEditing(false);
   };
 
-  const handleLogout = () => alert('Logout berhasil!');
+  const handleLogout = () => {
+    localStorage.removeItem("token");
+    localStorage.removeItem("user");
+    navigate("/login");
+  };
   const goToAdminPanel = () => alert('Masuk ke Admin Panel');
+
+  const navigate = useNavigate();
+
+useEffect(() => {
+  const token = localStorage.getItem('token');
+  if (!token) {
+    navigate('/login'); 
+  }
+}, []);
 
   return (
     <div className="profile-container">
